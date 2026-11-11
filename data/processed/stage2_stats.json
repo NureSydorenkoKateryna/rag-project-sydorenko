@@ -1,0 +1,10 @@
+{
+  "records_read": 16559,
+  "after_fields_filled": 9293,
+  "after_min_summary_len": 9216,
+  "after_unique_id": 9216,
+  "min_summary_chars": 100,
+  "max_docs": 10000,
+  "seed": 42,
+  "final_documents": 9216
+}
