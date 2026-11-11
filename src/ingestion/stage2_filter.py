@@ -39,6 +39,8 @@ def run(src: Path, dst: Path, stats_path: Path, min_len: int, max_docs: int, see
     if len(kept) > max_docs:
         idx = sorted(random.Random(seed).sample(range(len(kept)), max_docs))
         kept = [kept[i] for i in idx]
+    # 5. ключ doc_id = doc_{wiki_id}_{наш послідовний номер у фінальному корпусі}
+    kept = [{"doc_id": f"doc_{rec['wiki_id']}_{i}", **rec} for i, rec in enumerate(kept, start=1)]
     stats["final_documents"] = len(kept)
     dst.parent.mkdir(parents=True, exist_ok=True)
     with open(dst, "w", encoding="utf-8", newline="\n") as fout:
