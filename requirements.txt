@@ -1,0 +1,4 @@
+charset-normalizer==3.5.2
+tokenizers==0.23.3
+huggingface_hub==2.4.0
+llama-index-core==0.14.25

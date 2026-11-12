@@ -32,6 +32,7 @@
 |---|---|
 | `documents.jsonl` | Відфільтрований корпус, один JSON-об'єкт на рядок, кодування UTF-8 |
 | `stage2_stats.json` | Кількість записів після кожного правила відбору та використані параметри |
+| `token_stats.json` | Довжина описів у токенах та розрахункова кількість чанків для різних перекриттів |
 
 ## Поля запису
 
@@ -55,7 +56,7 @@
    ```powershell
    python -m venv .venv
    .venv\Scripts\Activate.ps1
-   pip install charset-normalizer
+   pip install -r requirements.txt
    ```
 
 2. Етап 1: визначення кодування, очищення тексту, запис у JSONL (`data/interim/cleaned.jsonl`):
@@ -68,6 +69,12 @@
 
    ```powershell
    python src/ingestion/stage2_filter.py --src data/interim/cleaned.jsonl --dst data/processed/documents.jsonl --min-len 100 --max-docs 10000 --seed 42
+   ```
+
+4. Статистика довжини в токенах і розрахункова кількість чанків (`data/processed/token_stats.json`). Токенайзер моделі BAAI/bge-small-en-v1.5 завантажується з Hugging Face Hub:
+
+   ```powershell
+   python src/ingestion/token_stats.py --src data/processed/documents.jsonl --out data/processed/token_stats.json
    ```
 
 Для Linux або macOS середовище активується командою `source .venv/bin/activate`, решта команд однакові.

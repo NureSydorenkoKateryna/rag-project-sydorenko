@@ -1,0 +1,18 @@
+{
+  "model": "BAAI/bge-small-en-v1.5",
+  "chunker": "llama_index.core.node_parser.SentenceSplitter",
+  "chunk_size": 300,
+  "chunk_overlap": 30,
+  "documents": 9216,
+  "chunks": 24570,
+  "tokens_per_chunk_mean": 235.0,
+  "tokens_per_chunk_min": 8,
+  "tokens_per_chunk_median": 276.0,
+  "tokens_per_chunk_max": 300,
+  "chunks_under_50_tokens": 718,
+  "chunks_under_100_tokens": 2675,
+  "chunks_under_50_tokens_pct": 2.92,
+  "chunks_under_100_tokens_pct": 10.89,
+  "chunks_over_size": 0,
+  "model_max_tokens": 512
+}
